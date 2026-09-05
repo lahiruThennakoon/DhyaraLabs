@@ -8,7 +8,10 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = join(root, "public", "products", "goldcalculator.png");
-const url = process.argv[2] ?? "https://app-h1p4nn5y4-dd-c68e.vercel.app/";
+const liveUrl =
+  process.argv[2] ?? "https://app-delta-liart-71.vercel.app/";
+/** Public deployment used when the primary URL is behind Vercel auth. */
+const fallbackUrl = "https://app-delta-liart-71.vercel.app/";
 
 const browser = await chromium.launch();
 const page = await browser.newPage({
@@ -16,8 +19,19 @@ const page = await browser.newPage({
   deviceScaleFactor: 2,
 });
 
-await page.goto(url, { waitUntil: "networkidle", timeout: 90_000 });
-await page.waitForTimeout(2_000);
+async function captureFrom(url) {
+  await page.goto(url, { waitUntil: "networkidle", timeout: 90_000 });
+  await page.waitForTimeout(2_000);
+  const title = await page.title();
+  return !/log in to vercel/i.test(title);
+}
+
+let captureUrl = liveUrl;
+if (!(await captureFrom(liveUrl))) {
+  console.warn(`Primary URL is not publicly accessible; using ${fallbackUrl}`);
+  captureUrl = fallbackUrl;
+  await captureFrom(captureUrl);
+}
 
 // Dismiss PWA install prompt if shown.
 const notNow = page.getByRole("button", { name: /not now/i });
@@ -38,5 +52,5 @@ await browser.close();
 const { statSync } = await import("node:fs");
 const sharp = (await import("sharp")).default;
 const meta = await sharp(out).metadata();
-console.log(`saved ${out}`);
+console.log(`saved ${out} (from ${captureUrl})`);
 console.log(`${meta.width}x${meta.height} (${statSync(out).size} bytes)`);
