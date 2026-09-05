@@ -35,7 +35,7 @@ export function ProductCard({
         )}
       >
         <div className={cn("lg:order-last", reversed && "lg:order-first")}>
-          <ProductVisual product={product} className="aspect-[4/3]" />
+          <ProductVisual product={product} />
         </div>
 
         <div>

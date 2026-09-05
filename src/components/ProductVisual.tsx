@@ -28,6 +28,9 @@ export function ProductVisual({
     <div
       className={cn(
         "relative overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-sm",
+        isMobile
+          ? "mx-auto aspect-[9/19] w-full max-w-[280px]"
+          : "aspect-[4/3]",
         className,
       )}
       role="img"
@@ -48,8 +51,9 @@ export function ProductVisual({
 
       <div
         className={cn(
-          "relative aspect-[4/3]",
-          isMobile ? "bg-ink-950" : "bg-ink-100",
+          "relative overflow-hidden",
+          isMobile ? "bg-[#f7f4ef]" : "bg-ink-100",
+          isMobile ? "h-full" : "aspect-[4/3]",
         )}
       >
         {product.screenshot ? (
@@ -58,11 +62,7 @@ export function ProductVisual({
             alt={`Screenshot of ${product.name}`}
             fill
             unoptimized
-            className={cn(
-              isMobile
-                ? "object-contain object-center"
-                : "object-cover object-top",
-            )}
+            className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 720px"
           />
         ) : (

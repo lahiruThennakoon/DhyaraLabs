@@ -107,7 +107,7 @@ export default function ProductsPage() {
 
               <Reveal className={cn(reversed && "lg:order-1")}>
                 <div className="rounded-3xl bg-gradient-to-b from-ink-50 to-white p-4 shadow-[0_30px_60px_-30px_rgba(11,13,20,0.35)] ring-1 ring-ink-100 md:p-6">
-                  <ProductVisual product={product} className="aspect-[4/3]" />
+                  <ProductVisual product={product} />
                 </div>
                 <p className="mt-4 text-center text-xs text-ink-400">
                   {product.presentationGoal}
