@@ -9,7 +9,7 @@ export const site = {
   headline: "Build software people actually use.",
   description:
     "DhyaraLabs designs and builds modern digital products, AI-powered applications, business tools, and web experiences that turn ideas into working software.",
-  email: "hello@dhyaralabs.com", // update to real contact address
+  email: "dhyaralabs@gmail.com",
 } as const;
 
 export const nav = [
