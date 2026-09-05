@@ -13,10 +13,12 @@ const liveUrl =
 const fallbackUrl = "https://app-delta-liart-71.vercel.app/";
 
 const browser = await chromium.launch();
-const page = await browser.newPage({
+const context = await browser.newContext({
   viewport: { width: 390, height: 844 },
   deviceScaleFactor: 2,
+  colorScheme: "dark",
 });
+const page = await context.newPage();
 
 async function openApp(url) {
   await page.goto(url, { waitUntil: "networkidle", timeout: 90_000 });
@@ -52,4 +54,4 @@ const { statSync } = await import("node:fs");
 const sharp = (await import("sharp")).default;
 const meta = await sharp(out).metadata();
 console.log(`saved ${out}`);
-console.log(`${meta.width}x${meta.height} (${statSync(out).size} bytes) from ${finalUrl}`);
+console.log(`${meta.width}x${meta.height} (${statSync(out).size} bytes, dark) from ${finalUrl}`);

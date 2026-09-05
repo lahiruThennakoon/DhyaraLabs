@@ -52,7 +52,7 @@ export function ProductVisual({
       <div
         className={cn(
           "relative overflow-hidden",
-          isMobile ? "bg-[#f7f4ef]" : "bg-ink-100",
+          isMobile ? "bg-ink-950" : "bg-ink-100",
           isMobile ? "h-full" : "aspect-[4/3]",
         )}
       >
