@@ -32,6 +32,8 @@ export type Product = {
   features: string[];
   capabilities: string[]; // capability tags shown as chips (no fabricated stack names)
   liveUrl?: string;
+  screenshot?: string; // path under /public — real product capture
+  screenshotLayout?: "mobile" | "desktop"; // how to frame the capture in UI
   presentationGoal: string;
   accent: "brand" | "teal" | "amber"; // distinct per-product visual identity
 };
@@ -55,6 +57,8 @@ export const products: Product[] = [
     ],
     capabilities: ["AI/ML", "Consumer app", "Mobile-first", "Product design"],
     liveUrl: "https://fitme.fans",
+    screenshot: "/products/fitme-ai.png",
+    screenshotLayout: "mobile",
     presentationGoal:
       "Shows DhyaraLabs can design and ship modern AI-powered consumer applications.",
     accent: "brand",
@@ -78,6 +82,8 @@ export const products: Product[] = [
     ],
     capabilities: ["Web app", "PWA", "SEO architecture", "Local-language data"],
     liveUrl: "https://trainslanka.lk",
+    screenshot: "/products/trainslanka.png",
+    screenshotLayout: "desktop",
     presentationGoal:
       "Shows DhyaraLabs can solve practical local problems with useful consumer-facing web products.",
     accent: "teal",
@@ -99,6 +105,9 @@ export const products: Product[] = [
       "Percentage-based and fixed making charges",
     ],
     capabilities: ["Utility product", "Data-driven", "UX design", "Localization"],
+    liveUrl: "https://app-delta-liart-71.vercel.app/",
+    screenshot: "/products/goldcalculator.png",
+    screenshotLayout: "mobile",
     presentationGoal:
       "Shows DhyaraLabs can build focused utility products that solve specific real-world problems.",
     accent: "amber",

@@ -1,6 +1,7 @@
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
 import { products } from "@/lib/site";
 import { Section, Eyebrow } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
 
 export function TrustSection() {
   return (
@@ -17,19 +18,33 @@ export function TrustSection() {
           </p>
         </div>
 
-        <ul className="grid gap-4 sm:grid-cols-3">
+        <ul className="grid gap-4 sm:grid-cols-3 sm:items-stretch">
           {products.map((p) => (
             <li
               key={p.slug}
-              className="surface-card p-5 transition-transform duration-300 hover:-translate-y-1"
+              className="surface-card flex h-full flex-col p-5 transition-transform duration-300 hover:-translate-y-1"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 text-brand-600">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
                 <Check size={18} strokeWidth={2.5} />
               </div>
               <p className="mt-4 font-semibold text-ink-900">{p.name}</p>
               <p className="mt-1 text-sm leading-snug text-ink-500">
                 {p.category}
               </p>
+              {p.liveUrl && (
+                <div className="mt-auto pt-5">
+                  <Button
+                    href={p.liveUrl}
+                    external
+                    variant="secondary"
+                    size="sm"
+                    className="w-full justify-center"
+                  >
+                    Launch
+                    <ArrowUpRight size={15} />
+                  </Button>
+                </div>
+              )}
             </li>
           ))}
         </ul>

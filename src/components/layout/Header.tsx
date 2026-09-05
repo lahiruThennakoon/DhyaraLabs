@@ -54,7 +54,7 @@ export function Header() {
       <div className="container-page flex h-16 items-center justify-between md:h-20">
         <Link
           href="/"
-          className="rounded-lg focus-visible:outline-none"
+          className="flex shrink-0 items-center overflow-visible rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40"
           aria-label="DhyaraLabs home"
         >
           <Logo />

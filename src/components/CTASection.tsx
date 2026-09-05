@@ -16,7 +16,10 @@ export function CTASection({
   return (
     <section className="py-20 md:py-28">
       <Container>
-        <div className="bg-radial-glow relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink-950 px-6 py-16 text-center md:px-16 md:py-20">
+        <div
+          className="relative overflow-hidden rounded-[1.75rem] border border-ink-800/80 bg-ink-950 px-6 py-16 text-center shadow-[0_24px_60px_-24px_rgba(7,8,13,0.55)] md:px-16 md:py-20"
+        >
+          <div className="bg-radial-glow absolute inset-0" aria-hidden="true" />
           <div
             className="bg-grid-dark pointer-events-none absolute inset-0 opacity-40"
             aria-hidden="true"

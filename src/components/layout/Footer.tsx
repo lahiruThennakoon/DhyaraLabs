@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Brand block */}
           <div>
-            <Logo tone="light" />
+            <Logo size="footer" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-400">
               {site.tagline} From idea to production, we turn software ideas
               into reliable digital products.
