@@ -43,21 +43,23 @@ export function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-ink-100 bg-paper/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
-      )}
-    >
-      <div className="container-page flex h-16 items-center justify-between md:h-20">
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div
+        aria-hidden="true"
+        className={cn(
+          "pointer-events-none absolute inset-0 border-b transition-[background-color,border-color,box-shadow] duration-300",
+          scrolled
+            ? "border-ink-100 bg-paper shadow-sm"
+            : "border-transparent bg-transparent shadow-none",
+        )}
+      />
+      <div className="container-page relative flex h-16 items-center justify-between md:h-20">
         <Link
           href="/"
-          className="flex shrink-0 items-center overflow-visible rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40"
+          className="flex shrink-0 items-center overflow-visible rounded-lg bg-paper px-1.5 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40"
           aria-label="DhyaraLabs home"
         >
-          <Logo />
+          <Logo className="relative isolate" />
         </Link>
 
         {/* Desktop nav */}

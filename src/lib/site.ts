@@ -105,7 +105,7 @@ export const products: Product[] = [
       "Percentage-based and fixed making charges",
     ],
     capabilities: ["Utility product", "Data-driven", "UX design", "Localization"],
-    liveUrl: "https://app-delta-liart-71.vercel.app/",
+    liveUrl: "https://app-h1p4nn5y4-dd-c68e.vercel.app/",
     screenshot: "/products/goldcalculator.png",
     screenshotLayout: "mobile",
     presentationGoal:

@@ -38,7 +38,7 @@ export function Logo({
       width={LOGO_WIDTH}
       height={LOGO_HEIGHT}
       className={cn(
-        "w-auto object-contain object-left",
+        "relative block w-auto object-contain object-left",
         "h-11 w-auto md:h-12",
         className,
       )}
