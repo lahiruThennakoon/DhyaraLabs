@@ -44,19 +44,24 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
+      {/*
+        Stays opaque at every scroll position: `main` is offset by the header
+        height, so a translucent bar would let the dark hero bleed through as
+        it scrolls underneath. Only the border and shadow react to scrolling.
+      */}
       <div
         aria-hidden="true"
         className={cn(
-          "pointer-events-none absolute inset-0 border-b transition-[background-color,border-color,box-shadow] duration-300",
+          "pointer-events-none absolute inset-0 border-b bg-paper transition-[border-color,box-shadow] duration-300",
           scrolled
-            ? "border-ink-100 bg-paper shadow-sm"
-            : "border-transparent bg-transparent shadow-none",
+            ? "border-ink-100 shadow-sm"
+            : "border-transparent shadow-none",
         )}
       />
       <div className="container-page relative flex h-16 items-center justify-between md:h-20">
         <Link
           href="/"
-          className="flex shrink-0 items-center overflow-visible rounded-lg bg-paper px-1.5 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40"
+          className="flex shrink-0 items-center overflow-visible rounded-lg px-1.5 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40"
           aria-label="DhyaraLabs home"
         >
           <Logo className="relative isolate" />
